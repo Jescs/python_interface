@@ -2,7 +2,7 @@ import is_leap_year
 import pytest
 
 
-class TestPara():
+class TestPara:
     def test_is_leap(self, is_leap_y):
         assert is_leap_year.is_leap_year(is_leap_y) == True
 
