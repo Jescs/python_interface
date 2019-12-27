@@ -1,6 +1,6 @@
 import sys
 import pytest
-import is_leap_year
+from day_01 import is_leap_year
 
 sys.path.append(".")
 

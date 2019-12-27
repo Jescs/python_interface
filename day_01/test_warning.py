@@ -1,5 +1,5 @@
 import pytest
-import make_warnings
+from day_01 import make_warnings
 
 
 class TestWarns():

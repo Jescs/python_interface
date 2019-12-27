@@ -1,4 +1,4 @@
-import is_leap_year
+from day_01 import is_leap_year
 import pytest
 
 
