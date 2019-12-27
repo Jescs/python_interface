@@ -44,26 +44,27 @@ class TestSmtp():
         smtp_data['smtp'].sendmail(smtp_data['sender'], smtp_data['receivers'], msg.as_string())
 
 
-class TestAttachment:
-    def test_send_attachment(self, smtp_ini):
-        msg = MIMEMultipart()
-        msg["From"] = smtp_data['sender']
-        msg["To"] = smtp_data['receivers']
-        msg["Subject"] = Header("测试邮件_03", "utf-8")
-        # 构建带附件的邮件正文
-        msg.attach(MIMEText('测试邮件MIMEText_03', 'plain', 'utf-8'))
-        # 构造附件,多个附件同理
-        attach1 = MIMEText(open("smtp.json", 'rb').read(), "base64", "utf-8")
-        attach1["Content-Type"] = "application/octet-stream"
-
-        # 这里filename随意写，将会在邮件中显示
-        attach1["Content-Disposition"] = "attrachment;filename=data.txt"
-
-        # 关联附件到正文
-        msg.attach(attach1)
-        # 发送邮件
-        smtp_data['smtp'].sendmail(smtp_data['sender'], smtp_data['receivers'], msg.as_string())
-
+# class TestAttachment:
+#     def test_send_attachment(self, smtp_ini):
+#         msg = MIMEMultipart()
+#         msg["From"] = smtp_data['sender']
+#         msg["To"] = smtp_data['receivers']
+#         msg["Subject"] = Header("测试邮件_03", "utf-8")
+#         # 构建带附件的邮件正文
+#         msg.attach(MIMEText('测试邮件MIMEText_03', 'plain', 'utf-8'))
+#         # 构造附件,多个附件同理
+#         file = "D:\code\pytest_code\python_interface\day_01\smtp.json"
+#         attach1 = MIMEText(open(file, 'rb').read(), "base64", "utf-8")
+#         attach1["Content-Type"] = "application/octet-stream"
+#
+#         # 这里filename随意写，将会在邮件中显示
+#         attach1["Content-Disposition"] = "attrachment;filename=data.txt"
+#
+#         # 关联附件到正文
+#         msg.attach(attach1)
+#         # 发送邮件
+#         smtp_data['smtp'].sendmail(smtp_data['sender'], smtp_data['receivers'], msg.as_string())
+#
 
 def test_send_html(smtp_ini):
     msg = MIMEText("<p>微信公众号号：开源优测</p><a href='http://www.testingunion.com'>开源优测社区</a>>",

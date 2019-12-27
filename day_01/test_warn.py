@@ -6,7 +6,7 @@ def warn_message():
     warnings.warn("user", UserWarning)
     warnings.warn("runtime", RuntimeWarning)
 
-
+@pytest.mark.me
 def test_warn_match():
     with pytest.warns(UserWarning, match='.*u.*') as record:
         # . 匹配任意字符，除了换行符, ^ 匹配字符串的开头, *匹配前面的子表达式零次或多次。要匹配 * 字符，请使用 \*

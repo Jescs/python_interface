@@ -21,8 +21,10 @@ class TestPara():
     def test_is_leap(self, year, assert_value):
         assert is_leap_year.is_leap_year(year) == assert_value
 
-    value_error = [(0, ValueError), ('-4', TypeError), (-4, ValueError), ('ss', TypeError), ('中文', TypeError), ('**', TypeError)]
+    value_error = [(0, ValueError), ('-4', TypeError),
+                   (-4, ValueError), ('ss', TypeError), ('中文', TypeError), ('**', TypeError)]
 
+    @pytest.mark.me
     @pytest.mark.parametrize('year,assert_value',value_error)
     def test_is_typeerror(self,year, assert_value):
         if assert_value == ValueError:
